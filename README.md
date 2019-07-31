@@ -1,0 +1,2 @@
+# Dappity
+Decentralized app
