@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App.js'
+import Auth from './Auth.js'
 import { AppConfig } from 'blockstack';
 import { Blockstack, initBlockstack } from 'react-blockstack'
 
@@ -13,3 +14,4 @@ const appConfig = new AppConfig()
 initBlockstack(appConfig)
 
 ReactDOM.render(<Router><Blockstack><App /></Blockstack></Router>, document.getElementById('root'));
+ReactDOM.render(<Blockstack><Auth /></Blockstack>, document.getElementById('auth'));

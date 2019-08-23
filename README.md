@@ -1,4 +1,4 @@
-# Blockstack React App
+# Dappity
 
 This project was bootstrapped from the [Blockstack:React App Generator](https://github.com/blockstack/blockstack-app-generator) which is based on [Create React App](https://github.com/facebook/create-react-app).
 
