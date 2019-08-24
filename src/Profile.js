@@ -10,7 +10,8 @@ function AppCard (props) {
   const icon = icons ? icons[0] : null
   const src = icon ? icon.src : avatarFallbackImage
   return (
-    <div className="card col-4" style={{color: theme_color, backgroundColor:  background_color}}>
+  <div className="col-6 col-sm-4 col-md-3 col-lg-2">
+    <div className="card m-1" style={{color: theme_color, backgroundColor:  background_color}}>
       <img className="card-img-top" src={src} alt="Card image cap" />
       <div className="card-header">
         <h3 className="card-title">{ short_name || name || "???" }</h3>
@@ -20,7 +21,8 @@ function AppCard (props) {
         <p className="card-text"> {description} </p>
       </div>
       <small hidden={true}>{JSON.stringify (manifest)}</small>
-    </div>)
+    </div>
+  </div>)
 }
 
 
