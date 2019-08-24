@@ -10,11 +10,14 @@ function AppCard (props) {
   const icon = icons ? icons[0] : null
   const src = icon ? icon.src : avatarFallbackImage
   return (
-  <div className="col-6 col-sm-4 col-md-3 col-lg-2">
-    <div className="card m-1" style={{color: theme_color, backgroundColor:  background_color}}>
-      <img className="card-img-top" src={src} alt="Card image cap" />
+  <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-1">
+    <div className="card bg-dark text-white h-100 shadow-1" style={{color: theme_color, backgroundColor:  background_color}}>
+
+      <img className="card-img-top p-3" src={src} alt="Card image cap" />
       <div className="card-header">
-        <h3 className="card-title">{ short_name || name || "???" }</h3>
+        <h3 className="card-title">
+          <a href={app} target="_blank">   { short_name || name || "???" }</a>
+        </h3>
         <h5 className="card-subtitle">{app}</h5>
       </div>
       <div className="card-body">
@@ -31,10 +34,8 @@ export default function Profile (props) {
   return (
     person ?
     <div className="panel-welcome" id="section-2">
-      <div className="avatar-section">
-        <img src={ person.avatarUrl() ? person.avatarUrl() : avatarFallbackImage } className="img-rounded avatar" id="avatar-image" alt=""/>
-      </div>
-      <h1>Hello, <span id="heading-name"> { person.name() ? person.name() : 'Nameless Person' } aka {userData.username}</span>!</h1>
+
+
       <div className = "row">
         { Object.keys(userData.profile.apps).map(app => <AppCard app={app} /> ) }
       </div>
