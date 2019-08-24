@@ -3,18 +3,26 @@ import { useBlockstack, useAppManifest } from 'react-blockstack'
 
 const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder.png';
 
-function App (props) {
+function AppCard (props) {
   const { app } = props
   const manifest = useAppManifest(app) || {"short_name": "None"}
-  const {name, short_name, start_url, description, icons } = manifest
+  const {name, short_name, start_url, description, icons, theme_color, background_color} = manifest
+  const icon = icons ? icons[0] : null
+  const src = icon ? icon.src : avatarFallbackImage
   return (
-    <div className="card col-4">
-      <h1>{ short_name || name || "???" }</h1>
-      <h3>{app}</h3>
-      <p> {description} </p>
+    <div className="card col-4" style={{color: theme_color, backgroundColor:  background_color}}>
+      <img className="card-img-top" src={src} alt="Card image cap" />
+      <div className="card-header">
+        <h3 className="card-title">{ short_name || name || "???" }</h3>
+        <h5 className="card-subtitle">{app}</h5>
+      </div>
+      <div className="card-body">
+        <p className="card-text"> {description} </p>
+      </div>
       <small hidden={true}>{JSON.stringify (manifest)}</small>
     </div>)
 }
+
 
 export default function Profile (props) {
   const { signOut, person, userData } = useBlockstack()
@@ -26,7 +34,7 @@ export default function Profile (props) {
       </div>
       <h1>Hello, <span id="heading-name"> { person.name() ? person.name() : 'Nameless Person' } aka {userData.username}</span>!</h1>
       <div className = "row">
-        { Object.keys(userData.profile.apps).map(app => <App app={app} /> ) }
+        { Object.keys(userData.profile.apps).map(app => <AppCard app={app} /> ) }
       </div>
     </div> : null
   )
