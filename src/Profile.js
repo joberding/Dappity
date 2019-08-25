@@ -1,8 +1,10 @@
-import React from 'react';
+import React from 'react'
 import { useBlockstack, useAppManifest } from 'react-blockstack'
+import Card from './library/Card.jsx'
 
 const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder.png';
 
+/*
 function AppCard (props) {
   const { app } = props
   const manifest = useAppManifest(app) || {"short_name": "None"}
@@ -26,7 +28,24 @@ function AppCard (props) {
       <small hidden={true}>{JSON.stringify (manifest)}</small>
     </div>
   </div>)
+}*/
+
+function AppCard (props) {
+  const { app } = props
+  const manifest = useAppManifest(app) || {"short_name": "None"}
+  const {name, short_name, start_url, description, icons, theme_color, background_color} = manifest
+  const icon = icons ? icons[0] : null
+  const src = icon ? icon.src : avatarFallbackImage
+  return (
+  <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-1">
+    <Card title={short_name || name || "???" }
+          description={description}
+          icon={src}>
+       Juliet
+    </Card>
+  </div>)
 }
+
 
 
 export default function Profile (props) {
@@ -34,8 +53,6 @@ export default function Profile (props) {
   return (
     person ?
     <div className="panel-welcome" id="section-2">
-
-
       <div className = "row">
         { Object.keys(userData.profile.apps).map(app => <AppCard app={app} /> ) }
       </div>
