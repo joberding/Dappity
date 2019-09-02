@@ -1,0 +1,167 @@
+// For simple drawer */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+  position: sticky;
+  bottom: 0;
+  top: 0;
+  min-height: 100vh;
+  padding-left: 0em;
+  padding-top: 4em;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar>div {
+  min-height: 100%;
+  overflow-y: scroll;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar li.separator {
+  border-bottom: thin solid #47748b;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(0,0,0,0.125);
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.0em;
+    display: block;
+    text-decoration: none;
+    color: gray;
+}
+
+#sidebar ul .active {
+  color: black;
+  background: #e0e0e0
+}
+
+#sidebar ul .active > a {
+  background: #e0e0e0;
+}
+
+#sidebar a[aria-expanded="true"] {
+    background: #e0e0e0;
+}
+
+#sidebar li a[href="/"] {
+    pointer-events: none;
+    color: LightGray;
+}
+
+#sidebar ul ul a {
+    font-size: 1em !important;
+    padding-left: 30px !important;
+    background: #e0e0e0;
+}
+
+#sidebar ul li i {
+  color: #A56DFF;
+  min-width: 2em;
+  text-align: center;
+}
+
+#sidebar ul li .badge {
+  font-size: 1.0em;
+}
+
+#sidebar ul li a[href]:hover {
+    color: white;
+    background: gray;
+}
+
+#sidebar ul li a:not([href]) {
+  color: #aaa;
+}
+
+/* Extension item */
+
+#sidebar a:not(href) {
+  display: flex !important;
+  align-items: center;
+}
+
+#sidebar .form-group .item-title {
+  width: 100%;
+}
+
+#sidebar a:not(href) i {
+  flex-grow: 0;
+  align-items: center;
+}
+
+#sidebar a:not(href) .form-group {
+  flex-grow: 1;
+  min-height: 1em;
+  margin: 0;
+}
+
+#sidebar a:not(href) input {
+  width: calc(100% + 6px);
+  padding: 0;
+  height: 1.5em;
+  display: none;
+  margin-left: -3px;
+  margin-right: -6px;
+  padding-left:2px;
+}
+
+#sidebar a:not(href):hover input, #group_plus input:focus {
+  display: block;
+}
+
+#sidebar a:not(href):hover .item-title, #group_plus input:focus + .item-title {
+  height: 0;
+  color: red;
+  display: block;
+  line-height:0;
+  overflow: hidden;
+}
+
+/* Sidebar for mobile (small )*/
+
+@media (max-width: 576px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: calc(55px + 4em);
+    margin-right: 1em;
+    min-width: 10em;
+    height: 100vh;
+    z-index: 1020;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 0.125rem 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0.125rem 0.25rem;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+  }
+
+  #sidebar.show, #sidebar.collapsing {
+
+  }
+
+  #sidebar.collapsing {
+    opacity: 0.8;
+    transition: all 0.1s;
+  }
+}
