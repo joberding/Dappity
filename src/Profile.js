@@ -41,7 +41,7 @@ function AppCard (props) {
     <Card title={short_name || name || "???" }
           description={description}
           icon={src}>
-       Juliet
+       <i className = "far fa-heart"></i>
     </Card>
   </div>)
 }
