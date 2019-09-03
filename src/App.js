@@ -1,9 +1,11 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom'
 import Profile from './Profile.js';
 import Sidebar,{Menu, MenuItem} from './library/Sidebar.jsx';
 
 export default function App (props) {
   return (
+  <Router>
     <div className="row">
       <div className="col-auto">
          <Sidebar>
@@ -23,8 +25,14 @@ export default function App (props) {
          </Sidebar>
       </div>
       <div className="col">
-         <Profile />
+
+          <Switch>
+            <Route key="favorites" path="/favorites" render={() => <p>Favorites</p>} />
+            <Route key="used" path="/used" component={Profile} />
+          </Switch>
+
       </div>
     </div>
+  </Router>
   )
 }
