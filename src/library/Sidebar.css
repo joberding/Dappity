@@ -17,10 +17,20 @@
   transition: all 0.3s;
 }
 
-#sidebar>div {
+/* Eliminate scrollbar */
+
+#sidebarContent {
   min-height: 100%;
   overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
 }
+
+#sidebarContent::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+/* ------ */
 
 #sidebar .sidebar-header {
     padding: 20px;
@@ -94,7 +104,7 @@
 
 /* Extension item */
 
-#sidebar a:not(href) {
+#sidebar a:not([href]) {
   display: flex !important;
   align-items: center;
 }
@@ -103,18 +113,18 @@
   width: 100%;
 }
 
-#sidebar a:not(href) i {
+#sidebar a:not([href]) i {
   flex-grow: 0;
   align-items: center;
 }
 
-#sidebar a:not(href) .form-group {
+#sidebar a:not([href]) .form-group {
   flex-grow: 1;
   min-height: 1em;
   margin: 0;
 }
 
-#sidebar a:not(href) input {
+#sidebar a:not([href]) input {
   width: calc(100% + 6px);
   padding: 0;
   height: 1.5em;
@@ -124,17 +134,20 @@
   padding-left:2px;
 }
 
-#sidebar a:not(href):hover input, #group_plus input:focus {
+#sidebar a:not([href]):hover input,
+#sidebar a:not([href]) input:focus {
   display: block;
 }
 
-#sidebar a:not(href):hover .item-title, #group_plus input:focus + .item-title {
+#sidebar a:not([href]):hover .item-title,
+#sidebar a:not([href]) input:focus + .item-title {
   height: 0;
   color: red;
   display: block;
   line-height:0;
   overflow: hidden;
 }
+
 
 /* Sidebar for mobile (small )*/
 

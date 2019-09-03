@@ -18,7 +18,6 @@ export function Badge (props) {
             </span>)
 }
 
-
 export default function Sidebar (props) {
   return (
   <nav id="sidebar" className="bg-light collapse navbar-collapse d-sm-block">
