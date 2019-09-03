@@ -29,6 +29,7 @@ export default function App (props) {
           <Switch>
             <Route key="favorites" path="/favorites" render={() => <p>Favorites</p>} />
             <Route key="used" path="/used" component={Profile} />
+            <Redirect to="/used"/>
           </Switch>
 
       </div>
