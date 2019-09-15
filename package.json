@@ -1,12 +1,12 @@
 {
-  "name": "hello-blockstack",
-  "version": "0.0.0",
+  "name": "Dappity",
+  "version": "1.0.0",
   "description": "A simple Blockstack app using ReactJS",
-  "author": "Terje Norderhaug",
+  "author": "Juliet Oberding",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/njordhov/react-blockstack.git"
+    "url": ""
   },
   "dependencies": {
     "blockstack": "^19.2.5",
