@@ -9,7 +9,7 @@
     "url": ""
   },
   "dependencies": {
-    "blockstack": "^19.2.5",
+    "blockstack": "^19.3.0",
     "react": "^16.8.6",
     "react-blockstack": "^0.4.11",
     "react-dom": "^16.8.6",
